@@ -21,7 +21,6 @@ package io.github.protocol.codec.smpp;
 
 public class SmppConst {
 
-
     private SmppConst() {
     }
 

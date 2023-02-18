@@ -307,6 +307,7 @@ public class SmppEncoder extends MessageToMessageEncoder<SmppMessage> {
         writeCString(buf, message.body().destinationAddr());
         return buf;
     }
+
     private ByteBuf encodeBindTransceiver(ChannelHandlerContext ctx, SmppBindTransceiver bindTransceiver) {
         SmppHeader header = bindTransceiver.header();
         SmppBindTransceiverBody body = bindTransceiver.body();
@@ -337,7 +338,6 @@ public class SmppEncoder extends MessageToMessageEncoder<SmppMessage> {
         return buf;
     }
 
-
     private ByteBuf encodeOutBind(ChannelHandlerContext ctx, SmppOutBind message) {
         ByteBuf buf = ctx.alloc().buffer(SmppConst.LEN_OUT_BIND_MSG);
         writeHeader(buf, message.header(), SmppConst.LEN_OUT_BIND_MSG);
@@ -345,6 +345,7 @@ public class SmppEncoder extends MessageToMessageEncoder<SmppMessage> {
         writeCString(buf, message.body().password());
         return buf;
     }
+
     private ByteBuf encodeSubmitMulti(ChannelHandlerContext ctx, SmppSubmitMulti submitMulti) {
         SmppHeader header = submitMulti.header();
         SmppSubmitMultiBody body = submitMulti.body();
